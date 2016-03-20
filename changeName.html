@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello world!React</title>
+
+	<script src="scripts/react-with-addons.min.js"></script>
+	<script src="scripts/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		
+	</div>
+
+	<script type="text/babel">
+		var SayHello = React.createClass({
+			getInitialState: function(){
+				return {
+					username: "newComer"
+				}
+			},
+
+			handleChnage: function(e){
+				this.setState({
+					username: e.target.value
+				});
+			},
+
+		  	render: function(){
+		    	return (
+		    		<div>
+		    			Hello {this.state.username} <br />
+		    			Input your name <input type="text" value={this.state.username} onChange={this.handleChnage} /></div>
+		    	)
+		  	}
+		});
+
+		ReactDOM.render(
+		  <SayHello />,
+		  document.getElementById('container')
+		);
+	</script>
+</body>
+</html>
